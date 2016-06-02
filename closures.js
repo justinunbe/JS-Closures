@@ -11,12 +11,12 @@ var outer = function(){
 // Above you're given a function that returns another function which has a closure over the name variable.
 // Invoke outer saving the return value into another variable called 'inner'.
 
-// Code Here
+var inner = outer();
 
 
 //Once you do that, invoke inner.
 
-  //Code Here
+inner();
 
 
 
@@ -35,7 +35,9 @@ var callFriend = function(){
 // Above you're given a callFriend function that returns another function.
 // Create a makeCall function that when invoked logs  'Calling Jake at 435-215-9248' in your console.
 
-  //Code Here
+function makeCall(){
+  console.log("Calling Jake at 435-215-9248")
+}
 
 
 
@@ -51,7 +53,9 @@ var callFriend = function(){
   Write a function called makeCounter that makes the following code work properly.
 */
 
-//Code Here
+function makeCounter() {
+
+}
 
 //Uncomment this once you make your function
 //   var count = makeCounter();
@@ -72,11 +76,15 @@ var callFriend = function(){
 // You will need to use the module pattern to achieve this.
 
 function counterFactory(value) {
-
-  // Code here.
-
-
   return {
+    inc:function() {
+      value += 1
+      return value
+    },
+    dec:function() {
+      value -= 1
+      return value;
+    }
   }
 }
 
@@ -89,18 +97,21 @@ counter = counterFactory(10);
 //////////////////PROBLEM 5////////////////////
 
 
-// Inside the motivation function create another function called message that will return 'You're doing awesome, keep it up firstname lastname.'
+// Inside the motivation function create another function called message that will return 'You're doing awesome,
+//keep it up firstname lastname.'
 
   function motivation(firstname, lastname){
 
     var welcomeText = 'You\'re doing awesome, keep it up ';
 
-    // code message function here.
+     function message() {
+       return welcomeText + firstname + " " + lastname + "."
+     }
 
 
     //Uncommment this to return the value of your invoked message function
 
-    //return message()
+    return message()
   }
 
   motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
